@@ -259,7 +259,16 @@ section {
     .quotes p, .quotes h3{
         font-size: 1rem;
     }
-}    
+}
+@media(max-width:768px){
+    .quotes{
+        top: 134%;
+    }
+    .box-button{
+        top: 160%;
+    }
+    
+}     
 
 /* Media query para telas maiores */
 @media (min-width: 600px) {
@@ -267,6 +276,8 @@ section {
     padding: 40px; /* Aumenta o padding em telas maiores */
   }
 }
+
+
 
 
 

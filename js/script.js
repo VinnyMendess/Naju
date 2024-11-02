@@ -1,30 +1,36 @@
-function generate(){
-    let quotes = {
-        "- Ana Julia ": '"Eu sou linda"',
-        "- Ana Julia ": '"É inexplicável a pureza do olhar e de palavras de uma criança"',
-        "- Vinicius Mendes ": '"A Naju é linda, mas não me engano por essa cobra"',
-        "- Vinicius Mendes ": '"Amar é enganar para tentar enxergar a si no coração de outra pessoa, se enganar em atrocidades feitas pela pessoa e venerá-la"',
-        "- Vinicius Mendes ": '" Hoje, você está certa... "',
-        "- Vinicius Mendes ": '"Odeio quando você não conversa comigo, deveria ser crime"',
-        "- Vinicius Mendes ": '" Percebe que a gente só saiu uma vez? "',
-        "- Vinicius Mendes ": '" Não sei o que não sei o que lá "',
-        "- Vinicius Mendes ": '" A parte corporal mais linda que você tem é seus  olhos, não atoa que os desenhei "',
-        "- Vinicius Mendes ": '" As vezes esqueço que você é baixinha k "',
-        "- Vinicius Mendes ": '" Chataaaaaaaaaa "',
-        "- Vinicius Mendes ": '" Mesmo com trocentas coisas para fazer ainda prefiro arrumar um tempo só pra falar com você "',
-        "- Vinicius Mendes 2": '" KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK "'
+let currentIndex = 0; // Índice atual, fora da função para manter seu valor
 
-    };
-    let authors = Object.keys(quotes);
+function generate() {
+    let citacoes = [
+        { author: "Ana Julia", quote: "Eu sou linda" },
+        { author: "Ana Julia", quote: "É inexplicável a pureza do olhar e de palavras de uma criança" },
+        { author: "Vinicius Mendes", quote: "A Naju é linda, mas não me engano por essa cobra" },
+        { author: "Vinicius Mendes", quote: "Amar é enganar para tentar enxergar a si no coração de outra pessoa, se enganar em atrocidades feitas pela pessoa e venerá-la" },
+        { author: "Vinicius Mendes", quote: "Hoje, você está certa..." },
+        { author: "Vinicius Mendes", quote: "Odeio quando você não conversa comigo, deveria ser crime" },
+        { author: "Vinicius Mendes", quote: "Percebe que a gente só saiu uma vez?" },
+        { author: "Vinicius Mendes", quote: "Não sei o que não sei o que lá" },
+        { author: "Vinicius Mendes", quote: "A parte corporal mais linda que você tem é seus olhos, não atoa que os desenhei" },
+        { author: "Vinicius Mendes", quote: "Às vezes esqueço que você é baixinha k" },
+        { author: "Vinicius Mendes", quote: "Chataaaaaaaaaa" },
+        { author: "Vinicius Mendes", quote: "Mesmo com trocentas coisas para fazer ainda prefiro arrumar um tempo só pra falar com você" },
+        { author: "Vinicius Mendes 2", quote: "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" }
+    ];
 
-    let author = authors[Math.floor(Math.random()  * authors.length)];
-
-    let quote = quotes[author];
-
-    document.getElementById("quote").innerHTML = quote;
-    document.getElementById("author").innerHTML = author;
-
+    // Verifica se ainda existem citações a serem exibidas
+    if (currentIndex < citacoes.length) {
+        let selectedQuote = citacoes[currentIndex];
+        document.getElementById("quote").innerHTML = selectedQuote.quote;
+        document.getElementById("author").innerHTML = selectedQuote.author;
+        currentIndex++;
+    } else {
+        document.getElementById("quote").innerHTML = "Todas as citações foram exibidas.";
+        document.getElementById("author").innerHTML = "";
+        // Opcional: Reiniciar o índice se quiser repetir
+        // currentIndex = 0; // Descomente esta linha para reiniciar
+    }
 }
+
 // outra ação
 var index = 0;
 
