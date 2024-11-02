@@ -74,7 +74,7 @@ section {
     position: absolute;
     left: 0; /* Início da borda esquerda */
     right: 0; /* Fim da borda direita */
-    height: 200px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -262,13 +262,21 @@ section {
 }
 @media(max-width:768px){
     .quotes{
-        top: 134%;
+        top: 144%;
     }
     .box-button{
-        top: 160%;
+        top: 190%;
     }
     
 }     
+
+@media(max-width:768px){
+    .informacoes{
+        top: 100%;
+    }
+}
+
+
 
 /* Media query para telas maiores */
 @media (min-width: 600px) {
@@ -288,8 +296,9 @@ section {
     color: #ffffff;
 }
 .informacoes{
-    position: absolute;
+    position: static;
+    text-align: center;
     font-weight: 100;
     font-size: 20px;
-    top: 85rem;
+    top: 1350px;
 }
