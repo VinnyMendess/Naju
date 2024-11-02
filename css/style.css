@@ -274,6 +274,13 @@ section {
     .informacoes{
         top: 100%;
     }
+    .carrossel{
+        top: 100%;
+    }
+    .hello-kitty{
+        right: 130px;
+        top: 330px;
+    }
 }
 
 
