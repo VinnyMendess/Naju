@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente Ana Julia</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Certifique-se de que o caminho para o CSS está correto -->
+</head>
+<body>
+    <div class="bg-img-01">
+        <h1>Feliz Aniversário<br><span>NAJU</span></h1>
+        <button class="celebrate-button" onclick="createConfetti()">Aperta</button>
+        <img class="hello-kitty" src="img/hello.png" alt="Hello Kitty">
+
+        <div class="informacoes">
+            <div id="mensagem-aniversario" class="birthday-message"></div>
+            <div id="duracao-amizade" class="friendship-message"></div>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <div class="box-frases-js">
+                <div class="quotes">
+                    <p id="quote">Tigre asiático</p>
+                    <h3 id="author">Vinicius Mendes</h3>
+                </div>
+                <div class="box-button">
+                    <a onclick="generate()" class="btn-btn-info">Clique!</a>
+                </div>
+            </div>
+            
+            <div class="carrossel">
+                <div class="slides">
+                    <img src="img/IMG-20240723-WA0016.jpg" class="slide" alt="Imagem 1">
+                    <img src="img/Captura de tela 2024-11-01 235231.png" class="slide" alt="Imagem 2">
+                    <img src="img/IMG_20231221_215900.jpg" class="slide" alt="Imagem 3">
+                    <img src="img/IMG-20241005-WA0028.jpg" class="slide" alt="Imagem 4">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/667ebc966c508f0a7e693f36/vsco_062824.jpg?w=640" class="slide" alt="Imagem 5">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/671240ff25bb465ff04efe87/vsco_101824.jpg?w=600" class="slide" alt="Imagem 6">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/66e62d84b8bc7d11a05e9884/vsco_091424.jpg?w=640" class="slide" alt="Imagem 7">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/66d4b987cf82e017e9acc76e/vsco_090124.jpg?w=640" class="slide" alt="Imagem 8">
+                    <img src="img/IMG-20240927-WA0029.jpg" class="slide" alt="Imagem 9">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/6681763a6a4d3d3d6e7cfc47/vsco_063024.jpg?w=640" class="slide" alt="Imagem 10">
+                    <img src="//im.vsco.co/aws-us-west-2/c6de26/300351762/668175c76a4d3d3d6e7cfc44/vsco_063024.jpg?w=640" class="slide" alt="Imagem 11">
+                    <img src="img/meme1.jpg" class="slide" alt="Imagem 12">
+                    <img src="img/meme3.jpg" class="slide" alt="Imagem 13">
+                    <img src="img/meme2.png" class="slide" alt="Imagem 14">
+                </div>
+                <button class="carrossel-button prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carrossel-button next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </section>
+    </main>
+
+    <a class="page-02" href="dist/index.html">Próxima Página</a>
+
+    <script>
+        // Data de nascimento e data de quando você a conheceu
+        const birthDate = new Date("2007-11-02T00:00:00");
+        const friendshipDate = new Date("2023-08-05T00:00:00");
+
+        function updateMessages() {
+            const today = new Date();
+
+            // Cálculo da idade
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const birthdayMessage = `Você nasceu em ${birthDate.toLocaleDateString('pt-BR')} e agora tem ${age} anos.`;
+            document.getElementById("mensagem-aniversario").innerText = birthdayMessage;
+
+            // Cálculo do tempo de amizade
+            const diffTime = Math.abs(today - friendshipDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+            const friendshipMessage = `Nós nos conhecemos há ${diffDays} dias.`;
+            document.getElementById("duracao-amizade").innerText = friendshipMessage;
+        }
+        
+        // Inicializa as mensagens de aniversário e amizade ao carregar a página
+        updateMessages();
+
+        let currentSlide = 0; // Índice do slide atual
+        const slides = document.querySelectorAll('.slide'); // Seleciona todas as imagens
+
+        function showSlide(index) {
+            // Garante que o índice esteja dentro dos limites
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Move os slides
+            const offset = -currentSlide * 100; // Calcula o deslocamento
+            document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction); // Altera o slide atual
+        }
+
+        // Exibe o primeiro slide ao carregar a página
+        showSlide(currentSlide);
+    </script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
